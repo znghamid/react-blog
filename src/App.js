@@ -1,19 +1,14 @@
 import './App.css';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
 
 function App() {
 
-  const title = "First react blog";
-  const link = "http://lilnk.ir";
-  const like = 50;
-  const array = [1, 2, 3, 4, 5];
-
   return (
     <div className="App">
+      <Navbar />
       <div className="content">
-        <h1>{ title }</h1>
-        <p>liked {like} times</p>
-        <a href={link}>lilnk.ir</a>
-        <p>{array}</p>
+        <Home />
       </div>
     </div>
   );
