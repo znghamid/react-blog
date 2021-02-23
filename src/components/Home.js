@@ -1,6 +1,19 @@
 const Home = () => {
+
+  const handleClick = (e) => {
+    console.log('hello ! ' , e);
+  }
+
+  const handleClickTwo = (name, e) => {
+    console.log(`hello ${name}, wellcome`, e.target);
+  }
+
   return (
-    <h1>Homepage</h1>
+    <div className="home">
+      <h2>Homepage</h2>
+      <button onClick={handleClick} >Click me !</button>
+      <button onClick={(e) => handleClickTwo('hamidreza', e)} >Click me agine !</button>
+    </div>
   );
 }
 
