@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
+  const [title, setTitle] = useState('All Blogs');
   const [blogs, setBlogs] = useState([
     { title: 'create website', blog: 'lorem ipsum...', author: 'hamidreza', id: 1 },
     { title: 'how to code like a boss', blog: 'lorem ipsum...', author: 'arash', id: 2 },
@@ -14,11 +15,14 @@ const Home = () => {
   }
   useEffect(() => {
     console.log(`blogs lenght is ${blogs.length}`);
-  });
+    if (blogs.length === 0) {
+      setTitle('No more to show');
+    }
+  }, [blogs]);
 
   return (
     <div className="home">
-      <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
+      <BlogList blogs={blogs} title={title} handleDelete={handleDelete} />
     </div>
   );
 }
