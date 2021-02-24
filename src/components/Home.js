@@ -3,17 +3,19 @@ import BlogList from './BlogList';
 
 const Home = () => {
   const [blogs, setBlogs] = useState([
-    { title: 'create website', blog: 'lorem ipsum...', author: 'hamidreza', id: 1},
-    { title: 'how to code like a boss', blog: 'lorem ipsum...', author: 'arash', id: 2},
-    { title: 'tips and trick', blog: 'lorem ipsum...', author: 'ali', id: 3},
-    { title: 'best web dev tool', blog: 'lorem ipsum...', author: 'mohamad', id: 4}
+    { title: 'create website', blog: 'lorem ipsum...', author: 'hamidreza', id: 1 },
+    { title: 'how to code like a boss', blog: 'lorem ipsum...', author: 'arash', id: 2 },
+    { title: 'tips and trick', blog: 'lorem ipsum...', author: 'ali', id: 3 },
+    { title: 'best web dev tool', blog: 'lorem ipsum...', author: 'mohamad', id: 4 }
   ]);
+  const handleDelete = (id) => {
+    let newBlog = blogs.filter((blog) => blog.id !== id);
+    console.log(newBlog);
+    setBlogs(newBlog);
+  }
   return (
     <div className="home">
-      <BlogList blogs={blogs} title="All Blogs" />
-      {blogs.map((b) => (
-        <BlogList key={b.id} blogs={blogs.filter((blog) => blog.author === b.author)} title={`${b.author}'s Blogs`} />
-      ))}
+      <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
     </div>
   );
 }
