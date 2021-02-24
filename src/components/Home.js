@@ -6,11 +6,14 @@ const Home = () => {
     { title: 'create website', blog: 'lorem ipsum...', author: 'hamidreza', id: 1},
     { title: 'how to code like a boss', blog: 'lorem ipsum...', author: 'arash', id: 2},
     { title: 'tips and trick', blog: 'lorem ipsum...', author: 'ali', id: 3},
-    { title: 'best web dev tool', blog: 'lorem ipsum...', author: 'mohammad', id: 4}
+    { title: 'best web dev tool', blog: 'lorem ipsum...', author: 'mohamad', id: 4}
   ]);
   return (
     <div className="home">
       <BlogList blogs={blogs} title="All Blogs" />
+      {blogs.map((b) => (
+        <BlogList key={b.id} blogs={blogs.filter((blog) => blog.author === b.author)} title={`${b.author}'s Blogs`} />
+      ))}
     </div>
   );
 }
