@@ -4,7 +4,7 @@ import BlogList from './BlogList';
 
 const Home = () => {
   const [title, setTitle] = useState('All Blogs');
-  const {data: blogs, isPending, errorFetch} = useFetch('http://localhost:8000/blogs');
+  const {data: blogs, isPending, errorFetch} = useFetch('https://my-json-server.typicode.com/znghamid/jsonDB/blogs');
   useEffect(() => {
     if (blogs) {
       if (blogs.length === 0) {

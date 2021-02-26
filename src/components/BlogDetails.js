@@ -3,11 +3,11 @@ import useFetch from "../webHooks/useFetch";
 
 const BlogDetails = () => {
   const {id} = useParams();
-  const {data: blog, isPending, errorFetch} = useFetch(`http://localhost:8000/blogs/${id}`);
+  const {data: blog, isPending, errorFetch} = useFetch(`https://my-json-server.typicode.com/znghamid/jsonDB/blogs/${id}`);
   const history = useHistory();
 
   const handleDelete = () => {
-    fetch("http://localhost:8000/blogs/" + blog.id, {
+    fetch("https://my-json-server.typicode.com/znghamid/jsonDB/blogs/" + blog.id, {
       method: 'DELETE'
     }).then(() => {
       history.push('/');
