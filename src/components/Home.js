@@ -1,16 +1,14 @@
-import { useState, useEffect } from 'react';
-import useFetch from '../webHook/useFetch';
+import useFetch from '../webHooks/useFetch';
 import BlogList from './BlogList';
 
 const Home = () => {
-  const [title, setTitle] = useState('All Blogs');
-  const {data: blogs, isLoading, errorFetch} = useFetch('http://localhost:8000/blogs');
+  const {data: blogs, isPending, errorFetch} = useFetch('http://localhost:8000/blogs');
 
   return (
     <div className="home">
       {errorFetch && <div>{errorFetch}</div>}
-      {isLoading && <div>Loading...</div>}
-      {blogs && <BlogList blogs={blogs} title={title} />}
+      {isPending && <div>Loading...</div>}
+      {blogs && <BlogList blogs={blogs} title="All Blogs" />}
     </div>
   );
 }
