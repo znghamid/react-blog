@@ -1,0 +1,11 @@
+---
+application:
+  name: "react-blog"
+  project: "PersianCalendar"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-react-blog"
+  routes:
+  - application_name: "react-blog"
+    paths:
+    - "/*"
